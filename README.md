@@ -65,7 +65,9 @@ In case of new update, just pull `origin` and/or add your features, commit then 
 
 # Data
 
-## Importants data and their types :
+## Weather
+
+### importants data and their types :
 
 1. Indicatif OMM station : numéro de station `numer_sta` -> `int`
 2. Date (UTC) : `date` -> `datetime`
@@ -92,7 +94,7 @@ In case of new update, just pull `origin` and/or add your features, commit then 
 23. Période de mesure des rafales : `per` -> `float`
 24. Précipitations dans les N dernières heures : `rr12` -> `float`
 
-## Nettoyages de colonnes non renseignées
+### Categories
 
 1. Informations générales
    - Numéro de station : `numer_sta` -> int
@@ -127,3 +129,11 @@ In case of new update, just pull `origin` and/or add your features, commit then 
    - Précipitations dans les N dernières heures : `rr12` -> float
 9. Temps présent
    - Temps présent : `ww` -> int
+
+## Locations
+
+1. Indicatif OMM station : numéro de station `no` -> `int`
+1. Nom de la ville: `numer_sta` -> `int`
+1. Latitude: `latitude` -> `float`
+1. Longitude: `longitude` -> `float`
+1. Altitude: `altitude` -> `int`
