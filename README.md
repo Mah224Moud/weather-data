@@ -54,11 +54,11 @@ You shoud see two remotes:
 git push gitlab --mirror
 ```
 
-From now on, evrytime you commit on origin, you should do the same for gitlab
+From now on, evrytime you push your `origin`, you should do the same for `gitlab`
 
 ```bash
 git push origin
 git push gitlab
 ```
 
-In case of new update just pull `origin` or add your features, commit then push it. And push also `gitlab`
+In case of new update, just pull `origin` and/or add your features, commit then push it. And push also `gitlab`
