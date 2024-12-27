@@ -21,6 +21,39 @@ If the project has `requirements.txt` then install the the dependancies
 pip install -r requirements.txt
 ```
 
+## Execution
+
+In order to execute this project, install `notebook` assuming you already have `python3` installed
+
+```bash
+pip install notebook
+```
+
+### Execute the notebook.
+
+This following command will execute the project and save the outputs in a new file `main.nbconvert.ipynb`.
+
+```bash
+jupyter nbconvert --to notebook --execute main.ipynb
+```
+
+### Execution without saving the outputs
+
+This command, will just execute the project inplace without saving the outputs in another file.
+
+```bash
+jupyter nbconvert --to notebook --execute --inplace main.ipynb
+```
+
+### Convert notebook to python
+
+You can also convert the notebook as python file and execute it
+
+```bash
+jupyter nbconvert --to script main.ipynb
+python3 main.py
+```
+
 # Gitlab mirroring repo
 
 ## Create gitlab repo and clone it, and clone also this one
