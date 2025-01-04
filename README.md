@@ -21,6 +21,15 @@ If the project has `requirements.txt` then install the the dependancies
 pip install -r requirements.txt
 ```
 
+## Web driver installation
+
+We are using Brave, which is based on Chromium. Follow these steps to download the exact version of ChromeDriver that matches your browser:
+
+1. Visit the official website: [https://developer.chrome.com/docs/chromedriver/downloads?hl=fr](https://developer.chrome.com/docs/chromedriver/downloads?hl=fr).
+2. Download the version that corresponds to your browser. For example, we are using version 131, which is the latest stable release [https://googlechromelabs.github.io/chrome-for-testing/](https://googlechromelabs.github.io/chrome-for-testing/).
+3. Click on the link for your operating system (Windows, macOS, Linux).
+4. Download the ZIP file and extract the executable to an accessible folder.
+
 ## Execution
 
 In order to execute this project, install `notebook` assuming you already have `python3` installed
