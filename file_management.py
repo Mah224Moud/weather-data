@@ -1,5 +1,6 @@
 import shutil
 import os
+from datetime import datetime
 
 def change_file_extension(download_directory: str) -> str:
     """
@@ -48,3 +49,51 @@ def move_file(source_file: str, destination_folder: str):
         print(f"Le fichier a été déplacé de {source_file} à {destination_path}")
     else:
         print("Le fichier n'existe pas.")
+
+def get_oldest_csv_file(path: str) -> str:
+    """
+    Trouve et retourne le chemin complet du fichier CSV avec la date la plus ancienne 
+    dans un répertoire donné, basé sur le format du nom de fichier : synop.anneemois.csv.
+
+    Parameters:
+    path (str): Le chemin vers le répertoire contenant les fichiers CSV.
+
+    Returns:
+    str: Le chemin complet du fichier le plus ancien si trouvé, sinon None.
+    """
+    try:
+        # Liste des fichiers qui respectent strictement le format attendu
+        csv_files = [f for f in os.listdir(path) if f.startswith("synop.") and f.endswith(".csv") and f.count('.') == 2]
+        
+        if not csv_files:
+            print("Aucun fichier CSV correspondant trouvé dans le répertoire.")
+            return None
+
+        # Trouver le fichier le plus ancien en fonction de la date dans le nom
+        oldest_file = None
+        oldest_date = None
+
+        for file in csv_files:
+            try:
+                # Extraire la date du fichier
+                date_str = file.split('.')[1]  # On récupère la partie "anneemois"
+                date_obj = datetime.strptime(date_str, "%Y%m")  # Convertir en objet datetime
+                
+                # Déterminer le fichier le plus ancien
+                if oldest_date is None or date_obj < oldest_date:
+                    oldest_date = date_obj
+                    oldest_file = file
+            except ValueError:
+                print(f"Format de date incorrect pour le fichier : {file}")
+        
+        if oldest_file:
+            oldest_file_path = os.path.join(path, oldest_file)
+            print(f"Le fichier le plus ancien est : {oldest_file_path}")
+            return oldest_file_path
+        else:
+            print("Aucun fichier avec une date valide n'a été trouvé.")
+            return None
+
+    except Exception as e:
+        print(f"Erreur lors du traitement : {e}")
+        return None
